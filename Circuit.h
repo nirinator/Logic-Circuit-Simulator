@@ -93,5 +93,8 @@ public:
             }
         }
     }
+    int getNumInputs() const {
+        return inputPins.size();
+    }
 };
 

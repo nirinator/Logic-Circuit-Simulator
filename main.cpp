@@ -27,9 +27,16 @@ int main() {
 
     std::cout << "Loading circuit from file..." << std::endl;
 
-    myCircuit.loadFromFile("test1.txt");
+    myCircuit.loadFromFile("C:/Users/nirin/Logic-Circuit-Simulator/test1.txt");
 
-    printTruthTable(myCircuit, 2);
+    int inputsCount = myCircuit.getNumInputs();
+
+    if (inputsCount > 0) {
+        printTruthTable(myCircuit, inputsCount);
+    }
+    else {
+        std::cout << "No inputs found in the circuit file." << std::endl;
+    }
 
     return 0;
 }
