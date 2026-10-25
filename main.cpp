@@ -3,6 +3,10 @@
 #include "Gate.h" 
 #include "Circuit.h"
 
+
+//this function receives a pointer to the circuit and the number of inputs. it iterates on all the possible inputs given the number of input pins
+//using setInputs it sets the values of the input pins, and using evaluate it calculates the output of these given pins.
+//
 void printTruthTable(Circuit& circuit, int numInputs) {
     int numCombinations = 1 << numInputs;
 
@@ -22,12 +26,14 @@ void printTruthTable(Circuit& circuit, int numInputs) {
     }
 }
 
+//this is the main function, it receives a text file from the python code that contains the commands that describe the logical gate tree
+//it checks whether there is more that 0 input pins, and if so it calculates the logical table.
 int main() {
     Circuit myCircuit;
 
     std::cout << "Loading circuit from file..." << std::endl;
 
-    myCircuit.loadFromFile("C:/Users/nirin/Logic-Circuit-Simulator/test1.txt");
+    myCircuit.loadFromFile("circuit.txt");
 
     int inputsCount = myCircuit.getNumInputs();
 
