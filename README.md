@@ -14,7 +14,7 @@ A fast evaluation backend in C++ that reads the schematic, builds the circuit gr
 HOW IT WORKS (HIGH-LEVEL OVERVIEW)
 =============================================================
 
-Draw the Circuit:
+Draw the Circuit:\n
 You place inputs, logic gates (AND, OR, NOT), and an output node on the canvas, then connect them with wires.
 
 Export the Netlist:
