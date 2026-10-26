@@ -11,10 +11,16 @@ I split the project into two parts:
 ## 1. HOW IT WORKS (HIGH-LEVEL OVERVIEW)
 
 - **Draw the Circuit:**  
-  You place inputs, logic gates (AND, OR, NOT), and an output node on the canvas, then connect them with wires.
+  You place inputs, logic gates (AND, OR, NOT), and an output node on the canvas, then connect them with wires. You can also build sub-circuits and save them as reusable custom components (up to 6 components), which get added to the sidebar with an "✕" button to delete them.
+
+- **Modes (Select vs. Delete):**
+Added a mode toggle so you can easily switch between normal selection/wiring mode and a dedicated Delete mode to click and remove wires or gates.
 
 - **Export the Netlist:**  
-  When you click "RUN SIMULATION", Python scans all the items in the scene, assigns unique IDs to each component, and writes a simple hardware netlist into `circuit.txt`.
+  When you click "RUN SIMULATION", Python scans all the items:
+- Inputs are sorted and named strictly by their creation order (IN1, IN2, IN3...), so moving them on screen doesn't mess up their order in the table.
+-If you used any Custom Components, Python flattens them into basic primitive gates (AND, OR, NOT) so the C++ backend doesn't need to know about complex sub-circuits.
+-It writes the clean hardware netlist into circuit.txt.
 
 - **Launch the C++ Backend:**  
   Python runs the compiled executable (`LogicSimulator.exe`) as a subprocess.
@@ -53,11 +59,4 @@ Key mechanisms:
 - **Circuit:** Reads `circuit.txt`, links gates via pointers, and resolves connections.
 - **Simulation:** Iterates through all $2^N$ input bit combinations and outputs the full truth table.
 
----
 
-## 3. BUILD AND RUN INSTRUCTIONS
-
-### Prerequisites
-- Python 3.8+ with PyQt5:
-  ```bash
-  pip install PyQt5
