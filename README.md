@@ -18,9 +18,9 @@ Added a mode toggle so you can easily switch between normal selection/wiring mod
 
 - **Export the Netlist:**  
   When you click "RUN SIMULATION", Python scans all the items:
-- Inputs are sorted and named strictly by their creation order (IN1, IN2, IN3...), so moving them on screen doesn't mess up their order in the table.
--If you used any Custom Components, Python flattens them into basic primitive gates (AND, OR, NOT) so the C++ backend doesn't need to know about complex sub-circuits.
--It writes the clean hardware netlist into circuit.txt.
+  - Inputs are sorted and named strictly by their creation order (IN1, IN2, IN3...), so moving them on screen doesn't mess up their order in the table.
+  -If you used any Custom Components, Python flattens them into basic primitive gates (AND, OR, NOT) so the C++ backend doesn't need to know about complex sub-circuits.
+  -It writes the clean hardware netlist into circuit.txt.
 
 - **Launch the C++ Backend:**  
   Python runs the compiled executable (`LogicSimulator.exe`) as a subprocess.
