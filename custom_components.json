@@ -1,0 +1,53 @@
+{
+    "\u05d9\u05d9\u05d9": {
+        "num_inputs": 3,
+        "num_outputs": 1,
+        "input_map": [
+            "SUB_3",
+            "SUB_2",
+            "SUB_1"
+        ],
+        "output_map": [
+            "SUB_0"
+        ],
+        "internal_gates": [
+            {
+                "id": "SUB_4",
+                "type": "OR",
+                "template": null
+            },
+            {
+                "id": "SUB_5",
+                "type": "AND",
+                "template": null
+            }
+        ],
+        "connections": [
+            {
+                "src_node": "SUB_4",
+                "dst_node": "SUB_0",
+                "dst_pin_idx": 0
+            },
+            {
+                "src_node": "SUB_5",
+                "dst_node": "SUB_4",
+                "dst_pin_idx": 0
+            },
+            {
+                "src_node": "SUB_1",
+                "dst_node": "SUB_4",
+                "dst_pin_idx": 1
+            },
+            {
+                "src_node": "SUB_2",
+                "dst_node": "SUB_5",
+                "dst_pin_idx": 1
+            },
+            {
+                "src_node": "SUB_3",
+                "dst_node": "SUB_5",
+                "dst_pin_idx": 0
+            }
+        ]
+    }
+}

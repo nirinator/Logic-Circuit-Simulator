@@ -10,20 +10,36 @@
 void printTruthTable(Circuit& circuit, int numInputs) {
     int numCombinations = 1 << numInputs;
 
-    std::cout << "--- Truth Table ---" << std::endl;
+    std::cout << "\n--- Truth Table ---" << std::endl;
 
+    // 1. הדפסת שמות הפינים לפי הסדר (IN1, IN2, ...)
+    for (int j = 1; j <= numInputs; j++) {
+        std::cout << "IN" << j << " ";
+    }
+    std::cout << "| OUT" << std::endl;
+
+    // 2. קו מפריד ויזואלי
+    std::string separator(numInputs * 4 + 6, '-');
+    std::cout << separator << std::endl;
+
+    // 3. הדפסת ערכי הטבלה
     for (int i = 0; i < numCombinations; i++) {
         std::vector<bool> currentInputs(numInputs);
 
         for (int j = 0; j < numInputs; j++) {
+            // IN1 הוא הביט המשמעותי (MSB)
             currentInputs[numInputs - 1 - j] = (i >> j) & 1;
         }
 
         circuit.setInputs(currentInputs);
 
-        for (bool val : currentInputs) std::cout << val << " ";
-        std::cout << " | " << circuit.evaluate() << std::endl;
+        // הדפסת ערך כל כניסה מתחת לכותרת שלה
+        for (int j = 0; j < numInputs; j++) {
+            std::cout << " " << currentInputs[j] << "  ";
+        }
+        std::cout << "|  " << circuit.evaluate() << std::endl;
     }
+    std::cout << std::endl;
 }
 
 //this is the main function, it receives a text file from the python code that contains the commands that describe the logical gate tree
