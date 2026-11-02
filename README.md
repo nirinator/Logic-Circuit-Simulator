@@ -62,4 +62,6 @@ Key mechanisms:
 - **Circuit:** Reads `circuit.txt`, links gates via pointers, and resolves connections.
 - **Simulation:** Iterates through all $2^N$ input bit combinations and outputs the full truth table.
 
+## 3. How to run
+  Easy! just run the main.cpp file.
 
